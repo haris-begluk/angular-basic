@@ -6,17 +6,22 @@ import {Component} from '@angular/core'
 @Component({
     selector: 'courses', 
     template: `
-    <input [(ngModel)]="email" (keyup.enter)="onKeyUp()" />
+    {{course.title | uppercase | lowercase}} <br/> 
+    {{course.students | number }} <br/>
+    {{course.rating | number:'1.2-2'  }} <br/>
+    {{course.price | currency:'NOK':true:'3.2-2'}} <br/>
+    {{course.releaseDate | date:'shortDate'}} <br/>
     `  
 })
-//Two way binding Special syntax in Angular 
-//<input [value]="email" (keyup.enter)="email =$event.target.value; onKeyUp()" /> 
-//<input [(ngModel)]="email" (keyup.enter)="onKeyUp()" /> //Banana  in the box syntax
+//Pipes 
+//Built-in Uppercase Lowercase Decimal Currency Percent
 export class CoursesComponent{    
-    email="moj@email.com";
-    onKeyUp(){
-       // if($event.keyCode === 13) 
-        alert("You pressed Enter!  " + this.email);
-    }
+   course = {
+       title:"The Complete Angular Course", 
+       rating:4.9745, 
+       students:30123, 
+       price:190.54, 
+       releaseDate: new Date(2018,3,1)
+   }
    
 }
