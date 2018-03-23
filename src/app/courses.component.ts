@@ -5,11 +5,13 @@ import {Component} from '@angular/core'
 
 @Component({
     selector: 'courses', 
-    template: ` 
-    <input [value]="email" (keyup.enter)="email =$event.target.value; onKeyUp()" />
+    template: `
+    <input [(ngModel)]="email" (keyup.enter)="onKeyUp()" />
     `  
 })
-//Two way binding
+//Two way binding Special syntax in Angular 
+//<input [value]="email" (keyup.enter)="email =$event.target.value; onKeyUp()" /> 
+//<input [(ngModel)]="email" (keyup.enter)="onKeyUp()" /> //Banana  in the box syntax
 export class CoursesComponent{    
     email="moj@email.com";
     onKeyUp(){
