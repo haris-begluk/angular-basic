@@ -6,7 +6,7 @@ import {Component} from '@angular/core'
 @Component({
     selector: 'courses', 
     template: `
-   {{ text | summary }}
+   {{ text | summary:10 }}
     `  
 })
 //Pipes 
