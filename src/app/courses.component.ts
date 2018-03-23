@@ -2,18 +2,18 @@ import { CoursesService } from './courses.services';
 import {Component} from '@angular/core' 
 
 
-
+//template variable
 @Component({
     selector: 'courses', 
     template: ` 
-    <input (keyup.enter)="onKeyUp($event)" />
+    <input #email (keyup.enter)="onKeyUp(email.value)" />
     `  
 })
 
 export class CoursesComponent{   
-    onKeyUp($event){
+    onKeyUp(email){
        // if($event.keyCode === 13) 
-        alert("You pressed Enter!" + $event.target.value);
+        alert("You pressed Enter!  " + email);
     }
    
 }
