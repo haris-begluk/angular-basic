@@ -18,10 +18,11 @@ import {Component} from '@angular/core'
 //Courses Component
 export class CoursesComponent{   
     //Primjer event bubble problema
-    onDivClicked($event){
+    onDivClicked($event){ 
         alert("Div was clicked:  " + $event);
     }
-   onSave($event){
+   onSave($event){ 
+       $event.stopPropagation();//sprijecava event bubbling 
        alert("Button was clicked:  " + $event);
    }
 }
