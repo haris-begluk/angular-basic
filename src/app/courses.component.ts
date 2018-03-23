@@ -1,3 +1,4 @@
+import { CoursesService } from './courses.services';
 //Importing Component Decorator
 import {Component} from '@angular/core' 
 
@@ -13,11 +14,21 @@ import {Component} from '@angular/core'
         </ul>
 
     ` 
-    //This special syntax is caled "String Interpolation"
-    //template: '<h1>{{ "Title: " + title }}</h1>' 
+    
 })
 //Courses Component
 export class CoursesComponent{ 
-    title = "List of Course";  
-    courses =  ["Course One" , "Course Two", "Course Three"];
+    title = "List of Course";   
+    courses; 
+
+    constructor(service:CoursesService){ //Olaksava Unit Testing
+        //Problem sa ovom implementacijom  
+        //ako koristimo new operator tada smo usko vezani za CourseService 
+        //drugi problem je ako zelimo dodati novi parametar u course konstruktor 
+        //tada moramo dodati novi atribut npr.  let service = new CoursesService(1); 
+        //let service = new CoursesService(); Losa praksa
+        this.courses = service.getCourses();
+    }
+   
+
 }
