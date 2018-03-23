@@ -16,17 +16,12 @@ import {Component} from '@angular/core'
 @Component({
     selector: 'courses', 
     template: `
-    <img [src]="imageUrl" /> 
-    <table>
-    <tr> 
-        <td [attr.colspan]="colSpan" ></td>
-    </tr>
-    </table>
+    <button class="btn btn-primary" [class.active]="isActive" >Save</button>
     ` 
     
 })
 //Courses Component
 export class CoursesComponent{ 
-    imageUrl = ""; 
-    colSpan = 2;
+   isActive = true; 
+   //isActive = false; klasa active za button ce nestati
 }
