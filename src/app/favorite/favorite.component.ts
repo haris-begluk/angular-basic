@@ -10,14 +10,14 @@ export class FavoriteComponent implements OnInit {
   //na ovaj nacin sprijecavamo pucanje aplikacije u slucaju 
   //izmjene naziva propertia u favorite componenti 
  @Input('is-favorite') isSelected:boolean; 
- @Output() change = new EventEmitter();
+ @Output('change') click = new EventEmitter();
   constructor() { }
 
   ngOnInit() {
   } 
   onClick(){
     this.isSelected = !this.isSelected; 
-    this.change.emit({newValue: this.isSelected});
+    this.click.emit({newValue: this.isSelected});
   }
 
 } 
