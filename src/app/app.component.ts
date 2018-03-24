@@ -10,7 +10,7 @@ export class AppComponent {
  post = {
    title: "Title", 
    isFavorite: true 
-   //isFavorite: false vraca praznu zvijezdu
+   
  } 
  //Umjesto  onFavoriteChanged(eventArgs:{newValue:boolean}){ 
 //Kreirali smo Interface
