@@ -12,8 +12,7 @@ export class AppComponent {
    isFavorite: true 
    
  } 
- //Umjesto  onFavoriteChanged(eventArgs:{newValue:boolean}){ 
-//Kreirali smo Interface
+ 
  onFavoriteChanged(eventArgs:FavoriteChangedEventArgs){
    alert("Changed " + eventArgs.newValue );
  }

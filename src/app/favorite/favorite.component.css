@@ -1,18 +1,6 @@
 .rating {
-   
     font-size: 20em; 
     color:grey; 
-   
   } 
  
-   .full:before {
-    content: "\2605";
-    position: absolute;
- }  
- 
-  /*
-  .rating > span:before {
-     content: "\2605";
-     position: absolute;
-  } 
-  */
+  
