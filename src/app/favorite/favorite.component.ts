@@ -1,14 +1,16 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-//u Angular-u imamo tri nacina za primjenu stilova(styles) nad komponentom
-//Prvi nacin: styleUrls: ['./favorite.component.css']  
-//Ovdje mozemo imati jedan ili vise css filova
-//Drugi nacin styles:[ `background:#546654;`]  
-//koristimo kada nemamo puno style coda pa ne koristimo novi external file.  
-//Treci nacin jeste da koristimo syles tag direktno u html filu komponente 
-//ali se to rijetko koristi 
-//Dobra praksa je da se koristi samo jedan nacin 
-//Ali i ukoliko koristimo vise nacina na jednoj komponenti  
-//Angular ce koristiti uvijek zadnju tako da ostale ignorise
+//Primjer Shadow DOM 
+//Omogcava da stilovi komponente ne budu primjenjeni na ostale elemente 
+//u Angular aplikaciji  
+/* 
+var el = document.querySelector('favorite'); 
+var root = el.createShadowRoot(); 
+el.innerHTML = `
+<style>h1 {color: red }</style>
+<h1>Hello</h1>
+`;
+
+*/
 @Component({
   selector: 'favorite',
   templateUrl: './favorite.component.html', 
