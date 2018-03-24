@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FavoriteChangedEventArgs } from './favorite/favorite.component';
 
 @Component({
   selector: 'app-root',
@@ -11,7 +12,9 @@ export class AppComponent {
    isFavorite: true 
    //isFavorite: false vraca praznu zvijezdu
  } 
- onFavoriteChanged(isFavorite){
-   alert("Changed "+isFavorite );
+ //Umjesto  onFavoriteChanged(eventArgs:{newValue:boolean}){ 
+//Kreirali smo Interface
+ onFavoriteChanged(eventArgs:FavoriteChangedEventArgs){
+   alert("Changed " + eventArgs.newValue );
  }
 }
