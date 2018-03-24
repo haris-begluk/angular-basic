@@ -1,21 +1,15 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-//Primjer Shadow DOM 
-//Omogcava da stilovi komponente ne budu primjenjeni na ostale elemente 
-//u Angular aplikaciji  
-/* 
-var el = document.querySelector('favorite'); 
-var root = el.createShadowRoot(); 
-el.innerHTML = `
-<style>h1 {color: red }</style>
-<h1>Hello</h1>
-`;
-
-*/
+import { ViewEncapsulation } from '@angular/compiler/src/core';
+//View Encaptulation
 @Component({
   selector: 'favorite',
   templateUrl: './favorite.component.html', 
-  styleUrls: ['./favorite.component.css'] 
- // styles:[ `background:#546654;`] 
+  styleUrls: ['./favorite.component.css'], 
+  encapsulation: ViewEncapsulation.Emulated //Emulated Shadow DOM primjenjuje specificne 
+  //stilove zasebno Default 99% slucajeva ne zelimo mijenjati
+  // encapsulation: ViewEncapsulation.Native //Shadow DOM encapsulation
+  //encapsulation: ViewEncapsulation.None
+
 })
 export class FavoriteComponent  { 
   
