@@ -1,12 +1,6 @@
-
-<h1>Angular</h1> 
-<hr>   
-<bootstrap-panel> 
-    <ng-container class="heading">
-        Heading
-    </ng-container>
-    <div class="body">
-        <h2>Body</h2>
-        <p>Some Content....</p>
-    </div>
-</bootstrap-panel>
+<div *ngIf="courses.length > 0">   
+    List of courses
+</div> 
+<div *ngIf="courses.length == 0">
+    No courses yet
+</div>
