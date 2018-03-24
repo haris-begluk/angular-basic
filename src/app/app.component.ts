@@ -10,5 +10,8 @@ export class AppComponent {
    title: "Title", 
    isFavorite: true 
    //isFavorite: false vraca praznu zvijezdu
+ } 
+ onFavoriteChanged(){
+   alert("Changed");
  }
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'favorite',
@@ -9,13 +9,15 @@ export class FavoriteComponent implements OnInit {
   //kreiranje Alias-a za isFavorite property 
   //na ovaj nacin sprijecavamo pucanje aplikacije u slucaju 
   //izmjene naziva propertia u favorite componenti 
- @Input('is-favorite') isSelected:boolean;
+ @Input('is-favorite') isSelected:boolean; 
+ @Output() change = new EventEmitter();
   constructor() { }
 
   ngOnInit() {
   } 
   onClick(){
-    this.isSelected = !this.isSelected;
+    this.isSelected = !this.isSelected; 
+    this.change.emit();
   }
 
 }
