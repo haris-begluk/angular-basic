@@ -1,15 +1,15 @@
 .rating {
-    unicode-bidi: bidi-override;
-    direction: rtl; 
-    font-size: 3em; 
+   
+    font-size: 20em; 
     color:grey; 
-    content: "\2605";
+   
   } 
  
    .full:before {
     content: "\2605";
     position: absolute;
- } 
+ }  
+ 
   /*
   .rating > span:before {
      content: "\2605";
