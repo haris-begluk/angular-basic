@@ -2,4 +2,4 @@
 <h1>Angular</h1> 
 <hr>   
 <!-- Binding isFavorite from app.component.ts to isFavorite in favorite.component.ts--> 
-<favorite [is-favorite]="post.isFavorite" (change)="onFavoriteChanged()"></favorite>
+<favorite [is-favorite]="post.isFavorite" (change)="onFavoriteChanged($event)"></favorite>

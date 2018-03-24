@@ -11,7 +11,7 @@ export class AppComponent {
    isFavorite: true 
    //isFavorite: false vraca praznu zvijezdu
  } 
- onFavoriteChanged(){
-   alert("Changed");
+ onFavoriteChanged(isFavorite){
+   alert("Changed "+isFavorite );
  }
 }
