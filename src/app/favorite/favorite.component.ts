@@ -1,8 +1,17 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-
+//Ako komponenta ima malo koda onda mozemo koristiti template  
+//ali ako komponenta sadrzi vise od 5 linija koda onda je bolje 
+//koristiti templateUrl jer tako je kod pregledniji
 @Component({
   selector: 'favorite',
-  templateUrl: './favorite.component.html',
+  //templateUrl: './favorite.component.html', 
+  template:`
+  <span class="glyphicon rating" 
+  [class.glyphicon-star]="isSelected" 
+  [class.glyphicon-star-empty]="!isSelected" 
+  (click)="onClick()"
+  ></span> 
+  `,
   styleUrls: ['./favorite.component.css'] 
 })
 export class FavoriteComponent implements OnInit { 
