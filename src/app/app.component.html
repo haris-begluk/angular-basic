@@ -1,6 +1,6 @@
-<div *ngIf="courses.length > 0">   
+<div *ngIf="courses.length > 0; else noCourses">   
     List of courses
 </div> 
-<div *ngIf="courses.length == 0">
+<ng-template #noCourses>
     No courses yet
-</div>
+</ng-template>

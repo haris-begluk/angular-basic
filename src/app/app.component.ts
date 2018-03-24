@@ -6,6 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
- courses = []; 
+ courses = [1,2,3]; 
  
 }
