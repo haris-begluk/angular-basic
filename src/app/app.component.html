@@ -1,10 +1,15 @@
 <!-- 
-    Ako radimo sa velikim brojem elemenata na stranici onda je ova metoda bolje nego 
-    koristenje ngIf jer ce uticati na performance aplikacije
+    ngSwitchCase Directiv
 -->
-<div [hidden]="courses.length == 0">   
-    List of courses
+<ul class="nav nav-pills">
+    <li class="nav-item"><a class="nav-link"  [class.active]="viewMode =='map'" (click)="viewMode='map'">Map View</a></li>
+    <li class="nav-item" ><a class="nav-link" [class.active]="viewMode =='list'" (click)="viewMode='list'">List View</a></li>
+</ul> 
+<div [ngSwitch]="viewMode">
+    <div *ngSwitchCase="'map'">Map View Content</div>
+    <div *ngSwitchCase="'list'">List View Content</div>  
+    <div *ngSwitchDefault>Something</div> 
 </div> 
-<div [hidden] ="courses.length > 0">
-    No courses yet
-</div>
+
+
+       
