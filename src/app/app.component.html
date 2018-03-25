@@ -1,15 +1,17 @@
 <!-- 
-    ngFor Directiv and change Detection
-    Pogledati dokumentaciju 
-    Angular prati podatke na osnovu lokacije u memoriji po defaultu 
-    ali mozemo promijeniti da prati objekte na osnovu Id-a
---> 
-<button (click)="loadCourses()">Load courses</button>
-<ul>
-    <li *ngFor="let course of courses; trackBy: trackCourse ">
-       {{course.name}} 
-      
-    </li>
-</ul>
+    * Leading Asterisk 
+    kada koristimo zvijezdicu sa direktivama if switchcase for 
+    angular ce prepisati taj blok koristeci ng-template 
+    ovo mozemo uraditi i samo ali na ovaj nacin angular 
+    radi posao za nas.
+-->  
+<div *ngIf="courses.length > 0; else noCourses"> </div> 
 
+<ng-template [ngIf]="courses.length > 0 ">
+ <div>list of courses</div>
+</ng-template> 
+
+<ng-template [ngIf]=" !(courses.length > 0 )">
+    No Courses
+</ng-template>
        
