@@ -1,5 +1,15 @@
 <!-- 
-   ngClass
+ ngStyle mijenja slijedeca linije i daje preglednost.
+    [style.backgroundColor]="canSave ? 'blue' : 'grey' " 
+    [style.color]="canSave ? 'white' : 'black' " 
+    [style.frontWeight]="canSave ? 'blod' : 'normal' "  
+    Izvjegavanje pisanja previse stilova:
 -->  
-<favorite></favorite>
-       
+
+    <button
+    [ngStyle]="{
+        'backgroundColor' : canSave ? 'blue' : 'grey',
+        'color': canSave ? 'white' : 'black',  
+        'frontWeight': canSave ? 'blod' : 'normal'
+    }"
+    >Save</button>
