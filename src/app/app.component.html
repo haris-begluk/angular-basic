@@ -1,10 +1,5 @@
 <!-- 
- Safe Traversal Operation  
- <span>{{ task.assignee.name }}</span> 
-Prvi nacin da izbjegnemo gresku na stranici:
- <span *ngIf="task.assignee">{{ task.assignee.name }}</span>  
-Safe Traversal Operator syntax: ?
- <span>{{ task.assignee?.name }}</span> 
+ Creating Custom Directives: ng g d input-format
 -->  
-<span>{{ task.assignee?.name }}</span> 
-    
+
+    <input type="text" appInputFormat [format]="'uppercase'">

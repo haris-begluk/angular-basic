@@ -10,6 +10,7 @@ import { CourseComponent } from './course/course.component';
 import { SummaryPipe } from './summary.pipe';
 import { FavoriteComponent } from './favorite/favorite.component';
 import { BootstrapPanelComponent } from './bootstrap-panel/bootstrap-panel.component';
+import { InputFormatDirective } from './input-format.directive';
 
 
 @NgModule({
@@ -17,7 +18,7 @@ import { BootstrapPanelComponent } from './bootstrap-panel/bootstrap-panel.compo
     AppComponent, 
     CoursesComponent, 
     CourseComponent, 
-    SummaryPipe, FavoriteComponent, BootstrapPanelComponent
+    SummaryPipe, FavoriteComponent, BootstrapPanelComponent, InputFormatDirective
   ],
   imports: [
     BrowserModule,  
