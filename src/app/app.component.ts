@@ -15,5 +15,11 @@ export class AppComponent {
     { id:3 , name:'course3'}
   
   ]; 
- }
+ } 
+//Na ovaj nacin mijenjamo kako ce Angular pratit objekte 
+//Umjesto da ih prati na osnovu identiteta objekta 
+//sada ce ih pratiti na osnovi id-a objekta
+    trackCourse(index, course){
+      return course ? course.id : undefined;
+    }
  }

@@ -1,11 +1,12 @@
 <!-- 
     ngFor Directiv and change Detection
     Pogledati dokumentaciju 
-
+    Angular prati podatke na osnovu lokacije u memoriji po defaultu 
+    ali mozemo promijeniti da prati objekte na osnovu Id-a
 --> 
 <button (click)="loadCourses()">Load courses</button>
 <ul>
-    <li *ngFor="let course of courses; ">
+    <li *ngFor="let course of courses; trackBy: trackCourse ">
        {{course.name}} 
       
     </li>
