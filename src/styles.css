@@ -3,4 +3,7 @@
 body {
 padding:20px; 
 background-color: gainsboro;
+} 
+.form-control.ng-touched.ng-invalid{
+    border: solid 1px red;
 }
