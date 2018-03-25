@@ -7,7 +7,7 @@ export class InputFormatDirective {
   //@HostListener('focus') onFocus(){
   //  console.log('On Focus');
   //} 
-     @Input('format') format;
+     @Input('appInputFormat') format;
 
   constructor(private el:ElementRef) { }
 
