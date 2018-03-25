@@ -1,11 +1,14 @@
 <!--
 div.form-group>label[for='comment']+textarea[id='comment'].form-control
-
+Adding Validation
  -->
 <form >  
   <div class="form-group">
   <label for="fristName">First Name</label>
-  <input ngModel name="firstName" #firstName="ngModel" (change)="log(firstName)" id="firstName" type="text" class="form-control"> 
+  <input required ngModel name="firstName" #firstName="ngModel" (change)="log(firstName)" id="firstName" type="text" class="form-control"> 
+    <div class="alert alert-danger" *ngIf="firstName.touched && !firstName.valid" >
+      First Name Is Required!
+    </div>
 </div> 
 <div class="form-group">
   <label for="comment">Comment</label>
