@@ -1,17 +1,5 @@
 <!-- 
-    * Leading Asterisk 
-    kada koristimo zvijezdicu sa direktivama if switchcase for 
-    angular ce prepisati taj blok koristeci ng-template 
-    ovo mozemo uraditi i samo ali na ovaj nacin angular 
-    radi posao za nas.
+   ngClass
 -->  
-<div *ngIf="courses.length > 0; else noCourses"> </div> 
-
-<ng-template [ngIf]="courses.length > 0 ">
- <div>list of courses</div>
-</ng-template> 
-
-<ng-template [ngIf]=" !(courses.length > 0 )">
-    No Courses
-</ng-template>
+<favorite></favorite>
        
