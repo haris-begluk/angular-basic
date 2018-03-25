@@ -12,8 +12,8 @@ export class ContactFormComponent  {
 
   submit(f){ 
     console.log(f);
-    console.log(f.value); 
-    //f.value je JSON reprezentacija kreirane forme koju mozemo poslati 
-    //putem AJAX-a na web api serveru
+    console.log(f.value); //sada je value ovjekt 
+    //kompleksan objekt jer smo koristili ngModelGroup direktivu
+    
   }
 }
