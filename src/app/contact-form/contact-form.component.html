@@ -35,10 +35,17 @@ Disabling the Submit Button
   </div>
   
 
-<div class="form-group">
-  <label for="comment">Comment</label>
-  <textarea ngModel name="comment" id="comment" cols="30" rows="10" class="form-control"></textarea>
-</div>
+  <div class="form-group">
+    <label for="comment">Comment</label>
+    <textarea ngModel name="comment" id="comment" cols="30" rows="10" class="form-control"></textarea>
+  </div> 
+
+  <div class="checkbox"><label >
+    <input ngModel name="isSubscribed" type="checkbox">Subscribed to mailing list</label>
+  </div> 
+  <p>
+    {{ f.value | json }} <!-- Sluzi da bi vidjeli unesene vrijednosti -->
+  </p>
 
 <button class="btn btn-primary" [disabled]="!f.valid">Submit</button>
 </form>
