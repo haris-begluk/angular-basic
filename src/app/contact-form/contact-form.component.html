@@ -1,7 +1,7 @@
 <!--
-Cleaner Templates
+ngForm
  -->
-<form >  
+<form #f="ngForm" (ngSubmit)="submit(f)">  
   <div class="form-group">
   <label for="fristName">First Name</label>
   <input 
@@ -9,7 +9,8 @@ Cleaner Templates
   minlength="4" 
   maxlength="10" 
   pattern="John" 
-  ngModel name="firstName" 
+  ngModel 
+  name="firstName" 
   #firstName="ngModel" 
   (change)="log(firstName)" 
   id="firstName" 

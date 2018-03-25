@@ -6,6 +6,14 @@ import { Component} from '@angular/core';
   styleUrls: ['./contact-form.component.css']
 })
 export class ContactFormComponent  {
-log(x){ console.log(x); }
- 
+  log(x){ 
+    console.log(x); 
+  } 
+
+  submit(f){ 
+    console.log(f);
+    console.log(f.value); 
+    //f.value je JSON reprezentacija kreirane forme koju mozemo poslati 
+    //putem AJAX-a na web api serveru
+  }
 }
