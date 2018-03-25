@@ -1,19 +1,5 @@
 <!--
-Control Classes and Directives 
-U Angularu imamo dvije klase sa kojima mozemo pratiti 
-stanje i validnost form i input polja: 
--FormControl (predstavlja samo jedno input polje) <====== ngModel
--FormGroup (predstavlja grupu input polja) <========ngForm ili ngModelGroup
-Kada primjenimo ngModel direktivu na input polje Angular 
-automacki kreira FormControl objekt i asocira ga sa tim input poljem 
-FromGroup class se koristi da predtavimo cijelu formu ili 
-opcionalno grupu input polja u formi. 
-
-Razlika izmedju ngForm i ngModelGroup jeste to 
-ngForm direktiva izlaze "output" property ngSubmit 
-kojeg koristimo da manipulisemo sa submit akcijom forme 
-ngModelGroup nema takav property jer nema smisla da  
-grupa input polja ima zasebno submit akciju
+Disabling the Submit Button
  -->
 <form #f="ngForm" (ngSubmit)="submit(f)">   
   <div ngModelGroup="contact" #contact="ngModelGroup" >
@@ -54,5 +40,5 @@ grupa input polja ima zasebno submit akciju
   <textarea ngModel name="comment" id="comment" cols="30" rows="10" class="form-control"></textarea>
 </div>
 
-<button class="btn btn-primary">Submit</button>
+<button class="btn btn-primary" [disabled]="!f.valid">Submit</button>
 </form>
