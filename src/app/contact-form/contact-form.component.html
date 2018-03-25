@@ -1,5 +1,7 @@
-<!--
-Disabling the Submit Button
+<!-- 
+  Checkbox added
+  Working with Dropdown list 
+  div.form-group>label[for='contactMethod']+select[id='contactMethod'].form-control
  -->
 <form #f="ngForm" (ngSubmit)="submit(f)">   
   <div ngModelGroup="contact" #contact="ngModelGroup" >
@@ -42,7 +44,12 @@ Disabling the Submit Button
 
   <div class="checkbox"><label >
     <input ngModel name="isSubscribed" type="checkbox">Subscribed to mailing list</label>
-  </div> 
+  </div>  
+  <div class="form-group"><label for="contactMethod"></label>
+    <select ngModel name="contactMethod" id="contactMethod" class="form-control">
+      <option *ngFor="let method of contactMethods" [value]="method.id" >{{ method.name }}</option>
+    </select>
+  </div>
   <p>
     {{ f.value | json }} <!-- Sluzi da bi vidjeli unesene vrijednosti -->
   </p>
