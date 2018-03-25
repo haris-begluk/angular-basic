@@ -16,8 +16,7 @@ export class AppComponent {
   onAdd(){
     this.courses.push({id:4, name:'course 4'});
   } 
-  onRemove(course){
-    let index = this.courses.indexOf(course); 
-    this.courses.splice(index, 1);
+  onChange(course){
+   course.name ="Updated";
   }
  }
