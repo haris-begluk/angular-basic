@@ -1,11 +1,5 @@
 <!-- 
-  Checkbox added
-  Working with Dropdown list 
-  div.form-group>label[for='contactMethod']+select[id='contactMethod'].form-control 
-
-  DA bi selektovali vise opcija iz drop down liste 
-  prvo odaberemo jednu zatim pritisnemo ctrl i nakon toga odaberemo 
-  dodatne zeljene opcije
+ Radio buttons
  -->
 <form #f="ngForm" (ngSubmit)="submit(f)">   
   <div ngModelGroup="contact" #contact="ngModelGroup" >
@@ -50,9 +44,19 @@
     <input ngModel name="isSubscribed" type="checkbox">Subscribed to mailing list</label>
   </div>  
   <div class="form-group"><label for="contactMethod"></label>
-    <select multiple ngModel name="contactMethod" id="contactMethod" class="form-control">
+    <select ngModel name="contactMethod" id="contactMethod" class="form-control">
       <option *ngFor="let method of contactMethods" [value]="method.id" >{{ method.name }}</option>
     </select>
+  </div> 
+  <div class="radio"><label>
+    <input ngModel type="radio" name="contactMethod" value="1"> 
+    Email
+  </label>
+  </div> 
+  <div class="radio"><label>
+      <input ngModel type="radio" name="contactMethod" value="2"> 
+      Phone
+    </label>
   </div>
   <p>
     {{ f.value | json }} <!-- Sluzi da bi vidjeli unesene vrijednosti -->
