@@ -1,15 +1,10 @@
 <!-- 
- ngStyle mijenja slijedeca linije i daje preglednost.
-    [style.backgroundColor]="canSave ? 'blue' : 'grey' " 
-    [style.color]="canSave ? 'white' : 'black' " 
-    [style.frontWeight]="canSave ? 'blod' : 'normal' "  
-    Izvjegavanje pisanja previse stilova:
+ Safe Traversal Operation  
+ <span>{{ task.assignee.name }}</span> 
+Prvi nacin da izbjegnemo gresku na stranici:
+ <span *ngIf="task.assignee">{{ task.assignee.name }}</span>  
+Safe Traversal Operator syntax: ?
+ <span>{{ task.assignee?.name }}</span> 
 -->  
-
-    <button
-    [ngStyle]="{
-        'backgroundColor' : canSave ? 'blue' : 'grey',
-        'color': canSave ? 'white' : 'black',  
-        'frontWeight': canSave ? 'blod' : 'normal'
-    }"
-    >Save</button>
+<span>{{ task.assignee?.name }}</span> 
+    
