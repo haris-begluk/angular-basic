@@ -1,5 +1,5 @@
 <!-- 
- Radio buttons
+ REACTIVE FORMS
  -->
 <form #f="ngForm" (ngSubmit)="submit(f)">   
   <div ngModelGroup="contact" #contact="ngModelGroup" >
@@ -55,7 +55,7 @@
   </div> 
  
   <p>
-    {{ f.value | json }} <!-- Sluzi da bi vidjeli unesene vrijednosti -->
+    {{ f.value | json }} 
   </p>
 
 <button class="btn btn-primary" [disabled]="!f.valid">Submit</button>
