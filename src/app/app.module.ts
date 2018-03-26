@@ -11,6 +11,7 @@ import { FavoriteComponent } from './favorite/favorite.component';
 import { BootstrapPanelComponent } from './bootstrap-panel/bootstrap-panel.component';
 import { InputFormatDirective } from './input-format.directive';
 import { ContactFormComponent } from './contact-form/contact-form.component';
+import { NewCourseFormComponent } from './new-course-form/new-course-form.component';
 
 
 @NgModule({
@@ -23,7 +24,7 @@ import { ContactFormComponent } from './contact-form/contact-form.component';
     BootstrapPanelComponent, 
     InputFormatDirective, 
     ContactFormComponent, 
-    SignupFormComponent
+    SignupFormComponent, NewCourseFormComponent
   ],
   imports: [
     BrowserModule,  
