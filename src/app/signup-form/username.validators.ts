@@ -1,6 +1,6 @@
 import { AbstractControl, ValidationErrors } from "@angular/forms";
-import { resolve } from "dns";
-import { reject } from "q";
+//import { resolve } from "dns";
+//import { reject } from "q";
 
 //Ovdje cemo simulirati poziv na server  
 //Pozive na server zovemo Asynchronous Operations 

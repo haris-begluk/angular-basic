@@ -17,7 +17,14 @@ export class SignupFormComponent {
   ),
     password: new FormControl('',Validators.required)
   }); 
-
+   login(){
+    
+      this.form.setErrors({
+        invalidLogin:true
+      }); //Setting errors on form level 
+     // this.username.setErrors; //setting errors on input level
+    
+    }
   get username (){
     return this.form.get('username');
   }
