@@ -1,4 +1,6 @@
 import { AbstractControl, ValidationErrors } from "@angular/forms";
+import { resolve } from "dns";
+import { reject } from "q";
 
 //Ovdje cemo simulirati poziv na server  
 //Pozive na server zovemo Asynchronous Operations 
@@ -13,17 +15,17 @@ export class UsernameValidators{
     return null;
     } 
 
-    static shouldBeUniq(control: AbstractControl): ValidationErrors | null { 
-        //Timer function koja ce ispisati u konzoli 
-        //nakon 2000 ms, takodjer primjer anonymous function
-        setTimeout(() => { //Nece raditi kao sto bi trebalo 
+    //Asynch Validator
+    static shouldBeUniq(control: AbstractControl):Promise<ValidationErrors | null> { 
+       return new Promise(( resolve, reject ) => {
+        setTimeout(() => { 
             console.log('ok'); 
             if(control.value === 'Mosh') 
-        return { shouldBeUniq: true };
-        return null;
-        }, 2000); 
-
-        return null;//ovo nije dobro jer ce uvijek vratiti null sto znaci da 
-        //nasa funkcija nece prijaviti gresku
-    }
+            resolve ({ shouldBeUniq: true }); 
+            else
+            resolve( null );
+        }, 2000);
+       });
+        
+     }
 }

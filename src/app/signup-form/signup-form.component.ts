@@ -8,13 +8,13 @@ import { UsernameValidators } from './username.validators';
 })
 export class SignupFormComponent { 
   form = new FormGroup({  
-    //Da bi primjenili vise validacijskih pravila moramo ih 
-    //proslijediti kao niz
     username: new FormControl('',[ 
       Validators.required, 
       Validators.minLength(4), 
       UsernameValidators.cannotContainSpace
-    ]),
+    ] ,
+    UsernameValidators.shouldBeUniq 
+  ),
     password: new FormControl('',Validators.required)
   }); 
 
