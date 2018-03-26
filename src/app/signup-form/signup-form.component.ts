@@ -6,8 +6,13 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
   styleUrls: ['./signup-form.component.css']
 })
 export class SignupFormComponent { 
-  form = new FormGroup({ 
-    username: new FormControl('',Validators.required),
+  form = new FormGroup({  
+    //Da bi primjenili vise validacijskih pravila moramo ih 
+    //proslijediti kao niz
+    username: new FormControl('',[ 
+      Validators.required, 
+      Validators.minLength(4)
+    ]),
     password: new FormControl('',Validators.required)
   }); 
 
