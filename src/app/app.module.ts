@@ -12,6 +12,8 @@ import { BootstrapPanelComponent } from './bootstrap-panel/bootstrap-panel.compo
 import { InputFormatDirective } from './input-format.directive';
 import { ContactFormComponent } from './contact-form/contact-form.component';
 import { NewCourseFormComponent } from './new-course-form/new-course-form.component';
+import { PostsComponent } from './posts/posts.component';
+import { HttpModule } from '@angular/http';
 
 
 @NgModule({
@@ -24,12 +26,13 @@ import { NewCourseFormComponent } from './new-course-form/new-course-form.compon
     BootstrapPanelComponent, 
     InputFormatDirective, 
     ContactFormComponent, 
-    SignupFormComponent, NewCourseFormComponent
+    SignupFormComponent, NewCourseFormComponent, PostsComponent
   ],
   imports: [
     BrowserModule,  
     FormsModule, 
-    ReactiveFormsModule
+    ReactiveFormsModule, 
+    HttpModule //modul za http servise
   ],
   providers: [ 
     CoursesService //Registracija providera (Dependecy Injection)
