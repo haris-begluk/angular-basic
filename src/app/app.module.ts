@@ -14,6 +14,7 @@ import { ContactFormComponent } from './contact-form/contact-form.component';
 import { NewCourseFormComponent } from './new-course-form/new-course-form.component';
 import { PostsComponent } from './posts/posts.component';
 import { HttpModule } from '@angular/http';
+import { PostService } from './Services/post.service';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { HttpModule } from '@angular/http';
     HttpModule //modul za http servise
   ],
   providers: [ 
-    CoursesService //Registracija providera (Dependecy Injection)
+    CoursesService, //Registracija providera (Dependecy Injection) 
+    PostService
   ],
   bootstrap: [AppComponent]
 })
