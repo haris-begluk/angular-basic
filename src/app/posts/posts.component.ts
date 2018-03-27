@@ -19,10 +19,12 @@ export class PostsComponent implements OnInit {
     } 
     ngOnInit(){
       this.service.getPosts()
-        .subscribe(response => {
+        .subscribe(
+          response => {
               //console.log(response.json()); 
               this.posts = response.json();
-        },error =>{
+        },
+        error =>{
           alert('Unexpected error occurred.'); 
           console.log(error);
         }); 
@@ -34,13 +36,21 @@ export class PostsComponent implements OnInit {
       }; 
       input.value = "";
         this.service.createPost(post) 
-        .subscribe(response => { 
+        .subscribe(
+          response => { 
           post['id'] = response.json().id; 
           this.posts.splice(0,0,post);
           console.log(response.json()); //da vidimo objekat u konzoli
-        }, error =>{
-          alert('Unexpected error occurred.'); 
-          console.log(error);
+        }, 
+        (error:Response) =>{ 
+          if(error.status === 400){
+             // this.form.setErrors(error.json()) //Ovako bi mogli spisat error poruke u formi 
+             alert('Los zahtjev desila se greska!');
+          } else {
+            alert('Unexpected error occurred.'); 
+            console.log(error);
+          }
+          
         });
     } 
 
@@ -60,9 +70,14 @@ export class PostsComponent implements OnInit {
       .subscribe(respnse =>{
           let index = this.posts.indexOf(post); 
           this.posts.splice(index,1);
-      },error =>{
-        alert('Unexpected error occurred.'); 
-        console.log(error);
+      },(error:Response) =>{ 
+        if(error.status === 404) 
+        alert('This post dont exist in database!'); 
+        else {
+          alert('Unexpected error occurred.'); 
+          console.log(error);
+        }
+        
       });
     }
 }
