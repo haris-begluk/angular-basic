@@ -14,6 +14,8 @@ export class PostsComponent  {
   //pretvorimo ih u json objekte te prikazemo na stranici
     posts: any[]; 
     private url = 'http://jsonplaceholder.typicode.com/posts';
+
+
     constructor(private http: Http){
         http.get(this.url) 
         .subscribe(response => {
@@ -32,7 +34,23 @@ export class PostsComponent  {
         .subscribe(response => { 
           post['id'] = response.json().id; 
           this.posts.splice(0,0,post);
-          console.log(response.json()) //da vidimo objekat u konzoli
+          console.log(response.json()); //da vidimo objekat u konzoli
         });
+    } 
+
+    updatePost(post){ 
+      //mozemo koristi put ili patch 
+      //razlika je sto pach salje samo polja koja cemo izmijeniti 
+      //patch nije siroko u upotrebi i prije koristenja moramo privjeriti 
+      // da li nas api moze prihvatiti ovakav zahtjev
+      this.http.patch(this.url + '/' + post.id , JSON.stringify({ isRead: true}))
+      .subscribe(response =>{
+        console.log(response.json());
+      })
+      // this.http.put(this.url,JSON.stringify(post));
     }
+
+
+
+
 }
