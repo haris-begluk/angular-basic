@@ -6,7 +6,19 @@ import { Http } from '@angular/http';
   templateUrl: './posts.component.html',
   styleUrls: ['./posts.component.css']
 }) 
-
+//Separation Of Concerns  
+//Ova implementacija nije najbolje konstruirana 
+//ovo je samo primjer kako koristiti zahtjeve prema api serveru 
+//Problem su sto imamo svu implementaciju na jednom mjestu sto otezava 
+//preglednost, testiranje takodje kada bi morali prokazati posts na vise mjesta 
+//ovaj kod ne bi bio praktica. Sto se tice testiranja zahtjevi prema serveru 
+//otezavaju testiranje i to ne bi trebali nikada dozvoliti  
+//Jer unittesting nije moguc ukoliko saljemo zahtjeve prema serveru 
+//Rjesenje je upotrba Service-a koji nam omogucuju da su svi zahtjevi 
+//na jednom mjesto sto je dobro u slucaju izmjene,  naravno 
+//takav servis mozemo koristiti na vise mjesta sto nije slucaj sa post klasom 
+//Druga prednost jeste kada testiramo mozemo kreirati lazni servis koji ne salje zahtjeve prema serveru
+//i tako koristiti hiljade testova u nekoliko sekundi sto ne bi bili u mogucnosti sa ovom klasom
 export class PostsComponent implements OnInit { 
     posts: any[]; 
     private url = 'http://jsonplaceholder.typicode.com/posts';
@@ -53,6 +65,4 @@ export class PostsComponent implements OnInit {
           this.posts.splice(index,1);
       });
     }
-
-
 }
