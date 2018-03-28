@@ -1,3 +1,6 @@
+import { BadInput } from './../common/bad-input';
+import { NotFoundError } from './../common/not-found-error';
+import { AppError } from './../common/app-error';
 import { Component, OnInit } from '@angular/core';
 
 import { PostService } from '../Services/post.service';
@@ -42,10 +45,11 @@ export class PostsComponent implements OnInit {
           this.posts.splice(0,0,post);
           console.log(response.json()); //da vidimo objekat u konzoli
         }, 
-        (error:Response) =>{ 
-          if(error.status === 400){
+        (error:AppError) =>{ 
+          if(error instanceof BadInput){
              // this.form.setErrors(error.json()) //Ovako bi mogli spisat error poruke u formi 
-             alert('Los zahtjev desila se greska!');
+            // this.form.setErrors(error.originalError); 
+            console.log(error.originalError);
           } else {
             alert('Unexpected error occurred.'); 
             console.log(error);
@@ -70,8 +74,8 @@ export class PostsComponent implements OnInit {
       .subscribe(respnse =>{
           let index = this.posts.indexOf(post); 
           this.posts.splice(index,1);
-      },(error:Response) =>{ 
-        if(error.status === 404) 
+      },(error:AppError) =>{ 
+        if(error instanceof NotFoundError ) 
         alert('This post dont exist in database!'); 
         else {
           alert('Unexpected error occurred.'); 
