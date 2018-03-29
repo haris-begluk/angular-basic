@@ -10,7 +10,7 @@ import { AppError } from '../common/app-error';
 @Injectable()
 export class PostService {
   private url = 'http://jsonplaceholder.typicode.com/posts'; 
-
+//za provjeru error-a samo prepraviti link u ne validan
   constructor(private http: Http) {
 
    } 
@@ -33,7 +33,7 @@ export class PostService {
    } 
 
 
-   
+
    deletePost(id){ 
 
    return this.http.delete(this.url + '/' + id)

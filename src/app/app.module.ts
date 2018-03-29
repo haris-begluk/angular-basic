@@ -1,3 +1,5 @@
+import { AppErrorHandler } from './common/app-error-handler';
+import { ErrorHandler } from '@angular/core';
 import { SignupFormComponent } from './signup-form/signup-form.component';
 import { CoursesService } from './courses.services';
 import { CoursesComponent } from './courses.component';
@@ -37,7 +39,8 @@ import { PostService } from './Services/post.service';
   ],
   providers: [ 
     CoursesService, //Registracija providera (Dependecy Injection) 
-    PostService
+    PostService, 
+    {provide:ErrorHandler, useClass: AppErrorHandler}
   ],
   bootstrap: [AppComponent]
 })

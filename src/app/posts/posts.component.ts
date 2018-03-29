@@ -26,10 +26,6 @@ export class PostsComponent implements OnInit {
           response => {
               //console.log(response.json()); 
               this.posts = response.json();
-        },
-        error =>{
-          alert('Unexpected error occurred.'); 
-          console.log(error);
         }); 
     }
 
@@ -51,8 +47,7 @@ export class PostsComponent implements OnInit {
             // this.form.setErrors(error.originalError); 
             console.log(error.originalError);
           } else {
-            alert('Unexpected error occurred.'); 
-            console.log(error);
+           throw error;
           }
           
         });
@@ -62,9 +57,6 @@ export class PostsComponent implements OnInit {
      this.service.updatePost(post)
       .subscribe(response =>{
         console.log(response.json());
-      }, error =>{
-        alert('Unexpected error occurred.'); 
-        console.log(error);
       });
       // this.http.put(this.url,JSON.stringify(post));
     }
@@ -78,8 +70,7 @@ export class PostsComponent implements OnInit {
         if(error instanceof NotFoundError ) 
         alert('This post dont exist in database!'); 
         else {
-          alert('Unexpected error occurred.'); 
-          console.log(error);
+         throw error;
         }
         
       });
