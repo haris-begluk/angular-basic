@@ -5,7 +5,8 @@ import { Injectable } from '@angular/core';
 import 'rxjs/add/operator/catch';  
 import 'rxjs/add/observable/throw';
 import { Observable } from 'rxjs/Observable'
-import { AppError } from '../common/app-error';
+import { AppError } from '../common/app-error'; 
+import 'rxjs/add/operator/map';
 
 @Injectable()
 export class DataService {
@@ -14,17 +15,20 @@ export class DataService {
 
    } 
    getAll(){
-    return this.http.get(this.url) 
+    return this.http.get(this.url)
+    .map(response => response.json()) 
     .catch(this.handleError); 
    } 
 
    create(resourse){
-    return this.http.post(this.url ,JSON.stringify(resourse)) 
+    return this.http.post(this.url ,JSON.stringify(resourse))
+    .map(response => response.json()) 
     .catch(this.handleError); 
    }
    
    update(resourse){
-    return this.http.patch(this.url + '/' + resourse.id , JSON.stringify({ isRead: true}))
+    return this.http.patch(this.url + '/' + resourse.id , JSON.stringify({ isRead: true})) 
+    .map(response => response.json()) 
     .catch(this.handleError) ;
    } 
 
@@ -33,6 +37,7 @@ export class DataService {
    delete(id){ 
 
    return this.http.delete(this.url + '/' + id)
+   .map(response => response.json()) 
    .catch(this.handleError);
    } 
 
