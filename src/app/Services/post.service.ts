@@ -2,7 +2,8 @@ import { BadInput } from './../common/bad-input';
 import { NotFoundError } from './../common/not-found-error';
 import { Http } from '@angular/http';
 import { Injectable } from '@angular/core'; 
-import 'rxjs/add/operator/catch'; 
+import 'rxjs/add/operator/catch';  
+import 'rxjs/add/observable/throw';
 import { Observable } from 'rxjs/Observable'
 import { AppError } from '../common/app-error';
 
@@ -30,6 +31,9 @@ export class PostService {
    updatePost(post){
     return this.http.patch(this.url + '/' + post.id , JSON.stringify({ isRead: true}));
    } 
+
+
+   
    deletePost(id){ 
 
    return this.http.delete(this.url + '/' + id)
