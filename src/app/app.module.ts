@@ -51,7 +51,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
     PostsComponent,
     GithubFollowersComponent,
     NavbarComponent,
-    HomeComponent,
+    HomeComponent,//Basic Component
     GithubProfileComponent,
     NotFoundComponent,
   ],
@@ -59,7 +59,16 @@ import { NotFoundComponent } from './not-found/not-found.component';
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpModule
+    HttpModule, 
+    RouterModule.forRoot([
+      { path:'', component: HomeComponent },
+      { path:'followers/:username', component: GithubProfileComponent }, 
+      { path:'followers', component: GithubFollowersComponent }, 
+      { path:'posts', component: PostsComponent }, 
+      { path:'**', component: NotFoundComponent}//"**" wildcard odnosi se na sve ostale rute 
+      //Redoslijed ruta je jako bitan  
+      //Prvo stavljati specificne rute pa zatim globalne
+    ])
   ],
   providers: [
     PostService,
