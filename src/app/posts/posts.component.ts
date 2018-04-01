@@ -26,23 +26,20 @@ export class PostsComponent implements OnInit {
           posts => this.posts = posts
       ); 
     }
-
+   //Optimistic vs Pessimistic Updates
     createPost(input:HTMLInputElement){ 
-      let post ={
-        title: input.value
-      }; 
+      let post ={ title: input.value };  
+      this.posts.splice(0,0,post); //Pessimistic Update
       input.value = "";
         this.service.create(post) 
         .subscribe(
           newPost => { 
           post['id'] = newPost.id; 
-          this.posts.splice(0,0,post);
-          
         }, 
-        (error:AppError) =>{ 
+        (error:AppError) =>{  
+          this.posts.splice(0,1);
+          
           if(error instanceof BadInput){
-             // this.form.setErrors(error.json()) //Ovako bi mogli spisat error poruke u formi 
-            // this.form.setErrors(error.originalError); 
             console.log(error.originalError);
           } else {
            throw error;
@@ -59,12 +56,13 @@ export class PostsComponent implements OnInit {
       // this.http.put(this.url,JSON.stringify(post));
     }
 
-    deletePost(post){
+    deletePost(post){ 
+      let index = this.posts.indexOf(post); //Pessimistic Delete
+      this.posts.splice(index,1);
       this.service.delete(post.id)
-      .subscribe(() =>{
-          let index = this.posts.indexOf(post); 
-          this.posts.splice(index,1);
-      },(error:AppError) =>{ 
+      .subscribe( null ,
+        (error:AppError) =>{  
+          this.posts.splice(index, 0, post);
         if(error instanceof NotFoundError ) 
         alert('This post dont exist in database!'); 
         else {

@@ -1,3 +1,4 @@
+import { AppError } from './../common/app-error';
 import { BadInput } from './../common/bad-input';
 import { NotFoundError } from './../common/not-found-error';
 import { Http } from '@angular/http';
@@ -35,7 +36,7 @@ export class DataService {
 
 
    delete(id){ 
-
+  // return Observable.throw(new AppError);
    return this.http.delete(this.url + '/' + id)
    .map(response => response.json()) 
    .catch(this.handleError);
