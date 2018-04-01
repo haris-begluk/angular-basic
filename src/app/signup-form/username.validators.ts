@@ -1,31 +1,21 @@
-import { AbstractControl, ValidationErrors } from "@angular/forms";
-//import { resolve } from "dns";
-//import { reject } from "q";
+import { AbstractControl, ValidationErrors } from '@angular/forms';
 
-//Ovdje cemo simulirati poziv na server  
-//Pozive na server zovemo Asynchronous Operations 
-//Kad zelimo provjeriti validaciju preko servera: 
-//Pozivanje servera koristeci AJAX 
-//Timer functions 
-export class UsernameValidators{
-  static cannotContainSpace(control:AbstractControl):ValidationErrors | null{
-    if((control.value as string).indexOf(' ')>=0) 
-    return { cannotContainSpace:true };
-    // return { minlength:{ requiredLength:10 , actualLength: control.value.length } } 
-    return null;
-    } 
+export class UsernameValidators { 
+    static cannotContainSpace(control: AbstractControl) : ValidationErrors | null {
+        if ((control.value as string).indexOf(' ') >= 0)
+            return { cannotContainSpace: true };
 
-    //Asynch Validator
-    static shouldBeUniq(control: AbstractControl):Promise<ValidationErrors | null> { 
-       return new Promise(( resolve, reject ) => {
-        setTimeout(() => { 
-            console.log('ok'); 
-            if(control.value === 'Mosh') 
-            resolve ({ shouldBeUniq: true }); 
-            else
-            resolve( null );
-        }, 2000);
-       });
-        
-     }
+        return null;
+    }
+    
+    static shouldBeUnique(control: AbstractControl) : Promise<ValidationErrors | null> {
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                if (control.value === 'mosh')        
+                    resolve({ shouldBeUnique: true });
+                else 
+                    resolve(null);
+            }, 2000);
+        });
+    }
 }
