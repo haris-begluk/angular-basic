@@ -3,11 +3,12 @@ import { BadInput } from './../common/bad-input';
 import { NotFoundError } from './../common/not-found-error';
 import { Http } from '@angular/http';
 import { Injectable } from '@angular/core'; 
-import 'rxjs/add/operator/catch';  
-import 'rxjs/add/observable/throw';
+import 'rxjs/add/operator/catch';//REACTIVE PROGRAMMING  
+import 'rxjs/add/observable/throw';//REACTIVE PROGRAMMING
 import { Observable } from 'rxjs/Observable'
-import { AppError } from '../common/app-error'; 
-import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/map'; //REACTIVE PROGRAMMING
+import 'rxjs/add/operator/toPromise'; //REACTIVE PROGRAMMING
+import 'rxjs/add/operator/retry'; //REACTIVE PROGRAMMING
 
 @Injectable()
 export class DataService {
@@ -38,8 +39,18 @@ export class DataService {
    delete(id){ 
   // return Observable.throw(new AppError);
    return this.http.delete(this.url + '/' + id)
-   .map(response => response.json()) 
-   .catch(this.handleError);
+   .map(response => response.json())  
+   .toPromise() 
+   //.retry(3) //jako mocna metoda
+   .catch(this.handleError); 
+   //Sve ove metode kao sto su map, retry, catch mozemo staviti u lanac 
+   //medjutim one nece biti izvrsene sve dok ne pozovemo metodu subscribe. 
+   //Ovo je jako mocno jer mozemo izvrsiti vise metoda od jednom. 
+   //najcesce koristenen metode su catch i map 
+   //Uvijek mozemo konvertovati observable to promises 
+   //ali najbolje je da upotrebljavamo promises jer 
+   //omogucavaju rxjs REACTIVE programiranje i mnogo operatora
+   //a takodjer su lazy 
    } 
 
    private handleError(error: Response){ 

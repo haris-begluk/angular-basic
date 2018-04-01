@@ -57,18 +57,11 @@ export class PostsComponent implements OnInit {
     }
 
     deletePost(post){ 
-      let index = this.posts.indexOf(post); //Pessimistic Delete
-      this.posts.splice(index,1);
-      this.service.delete(post.id)
-      .subscribe( null ,
-        (error:AppError) =>{  
-          this.posts.splice(index, 0, post);
-        if(error instanceof NotFoundError ) 
-        alert('This post dont exist in database!'); 
-        else {
-         throw error;
-        }
-        
-      });
+      //this.service.delete(post.id).subscribe(); 
+      //observable su lazy i nista se ne dogadja dok ne pozovemo 
+      //subscribe metodu tj. u ovom slucaju ne brise se zapis   
+      //Promises su eager odmah djeluju  
+      this.service.delete(post.id);
+
     }
 }
