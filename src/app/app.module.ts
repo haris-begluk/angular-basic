@@ -62,7 +62,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
     HttpModule, 
     RouterModule.forRoot([
       { path:'', component: HomeComponent },//Predstavlja Home Page ili default route
-      { path:'followers/:id', component: GithubProfileComponent }, 
+      { path:'followers/:id/:username', component: GithubProfileComponent }, 
       { path:'followers', component: GithubFollowersComponent }, 
       { path:'posts', component: PostsComponent }, 
       { path:'**', component: NotFoundComponent}//"**" wildcard odnosi se na sve ostale rute 
