@@ -61,7 +61,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
     ReactiveFormsModule,
     HttpModule, 
     RouterModule.forRoot([
-      { path:'', component: HomeComponent },
+      { path:'', component: HomeComponent },//Predstavlja Home Page ili default route
       { path:'followers/:username', component: GithubProfileComponent }, 
       { path:'followers', component: GithubFollowersComponent }, 
       { path:'posts', component: PostsComponent }, 

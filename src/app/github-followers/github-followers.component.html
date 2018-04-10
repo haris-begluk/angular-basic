@@ -5,9 +5,17 @@
     </a>
   </div>
   <div class="media-body">
-    <h4 class="media-heading">
-      <a href="#">{{ follower.login }}</a>
+    <h4 class="media-heading"> 
+      <!--Ovdje smo kreirali link za svakog specificnog korisnika-->
+      <a [routerLink]="['/followers',follower.id]">{{ follower.login }}</a> 
     </h4>
     <a href="follower.html_url">{{ follower.html_url }}</a>
   </div>
-</div>
+</div> 
+<!-- RouterLink 
+  -Obicni Link 
+    <a routerLink="/followers">Followers</a> 
+  -Route Parametri 
+  Ako radimo sa rutama i parametrima onda moramo koristiti property-binding sintaksu 
+    <a [routerLink]="['/followers',follower.id]"></a> 
+-->
