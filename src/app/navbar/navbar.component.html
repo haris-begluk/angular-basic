@@ -8,7 +8,7 @@
         <li class="active"><a href="/followers">Followers</a></li>
         <li><a href="/posts">Posts</a></li>
         -->
-        <li routerLinkActive="active current"><a routerLink="/followers">Followers</a></li>
+        <li routerLinkActive="active current"><a routerLink="/followers" [queryParams]="{page: 1, order: 'newest'}" >Followers</a></li>
         <li routerLinkActive="active current"><a routerLink="/posts">Posts</a></li> 
         <!--Takodje smo routerLinkActive property pmocu kojeg 
           mozemo da dodamo zeljene klase (jednu ili vise njih) koje ce biti primjenjene na link 
