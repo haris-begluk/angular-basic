@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http'; 
 import 'rxjs/add/operator/map';
+import { JwtHelper } from 'angular2-jwt';
 
 @Injectable()
 export class AuthService {
@@ -27,8 +28,21 @@ export class AuthService {
     localStorage.removeItem('token');
   }
 
-  isLoggedIn() { 
+  isLoggedIn() {  
+    //Da bi provjerili jwt da li postoji u spremniki i da li je validan 
+    //moramo koristiti biblioteku koju instaliramo na slijedeci nacin 
+    // npm install angular2-jwt --save 
+
+    let jwtHelper = new JwtHelper();  
+    let token = localStorage.getItem('token'); 
+    if(!token) 
     return false;
+    let exparationDate = jwtHelper.getTokenExpirationDate(token); 
+    let isExpired= jwtHelper.isTokenExpired(token);
+    //Za provjeru 
+    //console.log("Expiration: " + exparationDate); 
+    //console.log("IsExpired: " + isExpired);
+    return !isExpired;
   }
 }
 
