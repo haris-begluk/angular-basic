@@ -20,7 +20,11 @@ export class AuthService {
       });
   }
 
-  logout() { 
+  logout() {  
+    //Kada zelimo da odlogujemo korisnika potrebno je samo izbrisati token 
+    //iz lokalnog spremnika browsera i na taj nacin korisnik prestaje biti 
+    //authentifikovan. Jer ne postoji token. 
+    localStorage.removeItem('token');
   }
 
   isLoggedIn() { 
