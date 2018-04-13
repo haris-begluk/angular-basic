@@ -47,6 +47,16 @@ export class AuthService {
     //Koristimo return tokenNotExpired();
     */
     
+  } 
+
+  get currentUser(){ 
+    //Da bi testirali ovo potrebno je da kreiramo jwt novi objekt 
+    //i postavimo property "admin":"false" zatim insertujemo u 
+    //fakeBackend
+    let token = localStorage.getItem('token'); 
+    if(!token) return null; 
+
+    return new JwtHelper().decodeToken(token); 
   }
 }
 
