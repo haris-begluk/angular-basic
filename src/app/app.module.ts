@@ -29,7 +29,7 @@ import { NoAccessComponent } from './no-access/no-access.component';
     NotFoundComponent,
     NoAccessComponent
   ],
-  imports: [
+  imports: [ 
     BrowserModule,
     FormsModule,
     HttpModule,
@@ -42,11 +42,10 @@ import { NoAccessComponent } from './no-access/no-access.component';
   ],
   providers: [
     OrderService,
-
     AuthService,
     AuthGuard, 
     AdminAuthGuard, 
-   
+    AUTH_PROVIDERS, //Ovo smo morao dodati jer sam imao error
 
     // For creating a mock back-end. You don't need these in a real app. 
     fakeBackendProvider,
